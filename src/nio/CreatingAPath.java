@@ -1,16 +1,18 @@
 package nio;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class CreatingAPath {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Path p = null;
 		
 		//Using Paths helper class
@@ -50,6 +52,21 @@ public class CreatingAPath {
 		for (int i = 0; i < p.getNameCount(); i++) {
 			System.out.println(p.getName(i));//home,mario,workspace
 		}
+		
+		p = Paths.get("home/mario");
+		Path other = Paths.get("workspace_");
+		Path absolute = Paths.get("/workspace");
+		Path empty = Paths.get("");
+		System.out.println("resolve...");
+		System.out.println(p.resolve(other));
+		System.out.println(p.resolve(absolute));
+		System.out.println(p.resolve(empty));
+		
+		Path another = Paths.get("home/mario/workspace_");
+		Files.isSameFile(p.resolve(other), another);
+				
+		//file is not required to exist in equals method
+		System.out.println(p.resolve(other).equals(another));
 	}
 
 }
