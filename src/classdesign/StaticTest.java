@@ -10,7 +10,8 @@ public class StaticTest {
 	public StaticTest(){
 		System.out.println("In constructor");
 	}
-	
+	public static class StaticClass{}
+	public class NonStaticClass{}
 	//chamado sempre antes do construtor
 	{ 
 		System.out.println("In non - static");
@@ -26,5 +27,7 @@ public class StaticTest {
 		st1 = new StaticTest();//2
 		System.out.println(" 2 ");
 		StaticTest st2 = new StaticTest(); //3    
+		new  StaticTest.StaticClass(); //correct way to create a inner static class
+		
 	} 
 }
