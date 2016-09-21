@@ -2,3 +2,6 @@
 .project
 bin/
 /bin1/
+test/
+.settings
+derby.log
