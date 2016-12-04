@@ -17,6 +17,7 @@ public class WalkingADirectory {
 		System.out.println(p.toAbsolutePath().normalize());
 		
 		System.out.println("listing only directories");
+		//Return a lazily populated Stream, the elements of which are the entries in the directory. The listing is not recursive
 		Files.list(p).filter(Files::isDirectory).forEach(System.out::println);
 		System.out.println("walking...");
 		
