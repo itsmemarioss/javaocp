@@ -17,16 +17,17 @@ public class CopyFileSample {
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 		
 //		if file already exists, it will be overridden by this code
-		File source = new File("test");
-		File destination = new File("test_copy");
+		File source = new File("names");
+		File destination = new File("names_copy");
 		
+		new FileOutputStream(destination);
 //		the resources will be closed at the end by the try-with-resources
-		try(InputStream is = new FileInputStream(source);
-				OutputStream os = new FileOutputStream(destination)){
-			int b = 0;
-			while ( (b = is.read())!= -1 ) {
-				os.write(b);
-			}
-		}
+//		try(InputStream is = new FileInputStream(source);
+//				OutputStream os = new FileOutputStream(destination)){
+//			int b = 0;
+//			while ( (b = is.read())!= -1 ) {
+//				os.write(b);
+//			}
+//		}
 	}
 }

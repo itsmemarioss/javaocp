@@ -8,16 +8,25 @@ import java.io.IOException;
 
 public class CopingFileWithReaderAndWriter {
 	public static void main(String[] args) throws IOException {
-		BufferedReader r = new BufferedReader( new FileReader("names"));
-		BufferedWriter w= new BufferedWriter( new FileWriter("names_copy"));
+		
+		try(BufferedReader r = new BufferedReader( new FileReader("names"));
+			BufferedWriter w= new BufferedWriter( new FileWriter("names_copy",true))){
 		
 		String line = null;
-			
-		while ((line = r.readLine())!= null) {
-			w.append(line);
+
+		
+		while ((line = r.readLine())!=null) {
+			System.out.println(line);
+			w.write(line);
 			w.newLine();
 		}
-		w.close();
+		
+		}
+//		while ((line = r.readLine())!= null) {
+//			w.append(line);
+//			w.newLine();
+//		}
+//		w.close();
 	}
 
 }

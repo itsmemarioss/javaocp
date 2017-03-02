@@ -24,7 +24,7 @@ public class CopyFileSampleWithBuffer {
 		File destination = new File("test_copy");
 		
 //		the resources will be closed at the end by the try-with-resources
-		try(InputStream is = new BufferedInputStream( new FileInputStream(source));
+		/*try(InputStream is = new BufferedInputStream( new FileInputStream(source));
 				OutputStream os = new BufferedOutputStream(new FileOutputStream(destination))){
 			byte[] buffer = new byte[1024];
 			int lengthRead;
@@ -32,6 +32,6 @@ public class CopyFileSampleWithBuffer {
 				os.write(buffer, 0, lengthRead);
 				os.flush();
 			}
-		}
+		}*/
 	}
 }
